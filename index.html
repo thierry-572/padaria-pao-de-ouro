@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Pão de Ouro: pães artesanais, doces, salgados e bebidas fresquinhas.">
+    <meta name="theme-color" content="#593821">
+
+    <title>Pão de Ouro | Padaria & Confeitaria</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="#inicio" class="logo">
+        <img src="img/pao-de-ouro.jpg" alt="Pão de Ouro">
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Nossa história</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <form class="busca" id="form-busca" role="search">
+        <input id="busca" type="search" placeholder="Buscar produtos..."
+               aria-label="Buscar produtos">
+        <button type="submit" aria-label="Pesquisar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.8" cy="10.8" r="6.8"/>
+                <path d="m16 16 5 5"/>
+            </svg>
+        </button>
+    </form>
+
+    <a href="#carrinho" class="atalho-carrinho">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2 3h2l2.5 12.5a2 2 0 0 0 2 1.5h9a2 2 0 0 0 2-1.5L21 8H6"/>
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="18" cy="21" r="1"/>
+        </svg>
+        <span id="quantidade-total">0</span>
+    </a>
+</header>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-titulo">
+            <span>EXPLORE</span>
+            <h2>Nosso cardápio</h2>
+        </div>
+
+        <nav class="categorias" aria-label="Categorias de produtos">
+            <button class="categoria ativa" data-categoria="Todos" aria-pressed="true">
+                <span class="categoria-marcador"></span>
+                Todos os produtos
+                <span class="categoria-contagem" data-contagem="Todos">8</span>
+            </button>
+
+            <button class="categoria" data-categoria="Pães" aria-pressed="false">
+                <span class="categoria-marcador"></span>
+                Pães
+                <span class="categoria-contagem" data-contagem="Pães">2</span>
+            </button>
+
+            <button class="categoria" data-categoria="Doces" aria-pressed="false">
+                <span class="categoria-marcador"></span>
+                Doces
+                <span class="categoria-contagem" data-contagem="Doces">2</span>
+            </button>
+
+            <button class="categoria" data-categoria="Salgados" aria-pressed="false">
+                <span class="categoria-marcador"></span>
+                Salgados
+                <span class="categoria-contagem" data-contagem="Salgados">3</span>
+            </button>
+
+            <button class="categoria" data-categoria="Bebidas" aria-pressed="false">
+                <span class="categoria-marcador"></span>
+                Bebidas
+                <span class="categoria-contagem" data-contagem="Bebidas">1</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-promocao">
+            <span class="linha-dourada"></span>
+            <p class="eyebrow">FEITO COM CARINHO</p>
+            <h3>O sabor que faz parte da sua história.</h3>
+            <p>Receitas especiais, ingredientes selecionados e aquele cheirinho de pão saindo do forno.</p>
+            <a href="#sobre">Conheça nossa história →</a>
+        </div>
+
+        <div class="sidebar-horario">
+            <span class="status-ponto"></span>
+            <div>
+                <strong>Feito fresquinho</strong>
+                <p>Todos os dias, com carinho.</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="principal" id="inicio">
+
+        <section class="banner">
+            <div class="banner-texto">
+                <span class="eyebrow">PADARIA & CONFEITARIA</span>
+                <h1>Pequenos momentos.<br><span>Grandes sabores.</span></h1>
+                <p>O prazer de comer bem começa com ingredientes de qualidade e receitas feitas com carinho.</p>
+                <a href="#produtos" class="botao-dourado">Explorar cardápio <span>→</span></a>
+            </div>
+
+            <div class="banner-foto">
+                <img
+                    src="https://th.bing.com/th/id/OIP.gz2vj6EJqhHbthQ0npZfrwHaFO?w=266&h=188&c=7&r=0&o=7&pid=1.7&rm=3"
+                    alt="Pães artesanais recém-assados"
+                    fetchpriority="high">
+            </div>
+
+            <div class="banner-etiqueta">
+                <span>TRADIÇÃO</span>
+                <strong>em cada fornada</strong>
+            </div>
+        </section>
+
+        <section class="secao-produtos" id="produtos">
+            <header class="cabecalho-produtos">
+                <div>
+                    <span class="eyebrow">ESCOLHIDOS PARA VOCÊ</span>
+                    <h2>Da nossa cozinha</h2>
+                    <p>Encontre seu próximo favorito.</p>
+                </div>
+
+                <span class="resultado" id="resultado">8 produtos</span>
+            </header>
+
+            <div class="grade-produtos" id="grade-produtos">
+
+                <article class="produto" data-nome="Pão Francês" data-categoria="Pães" data-preco="0.80">
+                    <div class="produto-foto">
+                        <img src="https://vejasp.abril.com.br/wp-content/uploads/2018/04/paopadariaartesanallm5.jpg"
+                             alt="Pão francês dourado" loading="lazy">
+                        <span class="etiqueta-produto">Favorito</span>
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">PÃES</span>
+                        <h3>Pão Francês</h3>
+                        <p>Crocante por fora, macio por dentro.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 0,80 <small>/ un.</small></strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Pão Francês ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto" data-nome="Croissant" data-categoria="Pães" data-preco="5.90">
+                    <div class="produto-foto">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+                             alt="Croissant folhado e dourado" loading="lazy">
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">PÃES</span>
+                        <h3>Croissant</h3>
+                        <p>Camadas delicadas e manteiga na medida.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 5,90</strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Croissant ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto" data-nome="Sonho de Chocolate" data-categoria="Doces" data-preco="4.90">
+                    <div class="produto-foto">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.9AoHbMMRnd-vHdsY8_TzoQHaDt?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                             alt="Doce de confeitaria coberto com chocolate" loading="lazy">
+                        <span class="etiqueta-produto">Especial</span>
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">DOCES</span>
+                        <h3>Sonho de Chocolate</h3>
+                        <p>Uma pausa doce para o seu dia.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 4,90</strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Sonho de Chocolate ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto" data-nome="Pão de Queijo" data-categoria="Salgados" data-preco="3.50">
+                    <div class="produto-foto">
+                        <img src="https://img.freepik.com/fotos-premium/pao-de-queijo-brasileiro-pao-de-queijo_538646-9959.jpg?w=2000"
+                             alt="Pãezinhos de queijo assados" loading="lazy">
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">SALGADOS</span>
+                        <h3>Pão de Queijo</h3>
+                        <p>Quentinho, leve e cheio de sabor.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 3,50</strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Pão de Queijo ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto" data-nome="Bolo de Chocolate" data-categoria="Doces" data-preco="6.90">
+                    <div class="produto-foto">
+                        <img src="https://m.media-amazon.com/images/S/assets.wholefoodsmarket.com/content/d9/ac/67d35edc25e6eb6072491d962778/dark-chocolate-layer-cake._TTW_._CR0,0,425,268_.jpg"
+                             alt="Bolo de chocolate com cobertura" loading="lazy">
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">DOCES</span>
+                        <h3>Bolo de Chocolate</h3>
+                        <p>Uma fatia generosa de felicidade.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 6,90</strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Bolo de Chocolate ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto" data-nome="Pastel" data-categoria="Salgados" data-preco="4.50">
+                    <div class="produto-foto">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80"
+                             alt="Pastéis dourados recém-preparados" loading="lazy">
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">SALGADOS</span>
+                        <h3>Pastel</h3>
+                        <p>Massa crocante e recheio saboroso.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 4,50</strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Pastel ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto" data-nome="Sanduíche Natural" data-categoria="Salgados" data-preco="8.90">
+                    <div class="produto-foto">
+                        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80"
+                             alt="Sanduíche com vegetais frescos" loading="lazy">
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">SALGADOS</span>
+                        <h3>Sanduíche Natural</h3>
+                        <p>Ingredientes frescos a cada mordida.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 8,90</strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Sanduíche Natural ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto" data-nome="Suco Natural" data-categoria="Bebidas" data-preco="6.50">
+                    <div class="produto-foto">
+                        <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=80"
+                             alt="Suco natural de frutas servido em copo" loading="lazy">
+                    </div>
+                    <div class="produto-info">
+                        <span class="produto-categoria">BEBIDAS</span>
+                        <h3>Suco Natural</h3>
+                        <p>Refrescante para acompanhar seu pedido.</p>
+                        <div class="produto-rodape">
+                            <strong>R$ 6,50</strong>
+                            <button class="adicionar" type="button" aria-label="Adicionar Suco Natural ao carrinho">+</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="sem-resultados" id="sem-resultados" hidden>
+                Nenhum produto encontrado nessa categoria.
+            </p>
+        </section>
+
+    </main>
+
+    <aside class="painel-carrinho" id="carrinho">
+        <div class="carrinho-cabecalho">
+            <div>
+                <span class="eyebrow">SEU PEDIDO</span>
+                <h2>Meu carrinho</h2>
+            </div>
+            <span class="bolinha-contador" id="contador-carrinho">0</span>
+        </div>
+
+        <div id="itens-carrinho" aria-live="polite">
+            <p class="carrinho-vazio">Seu carrinho está vazio. Que tal escolher algo fresquinho?</p>
+        </div>
+
+        <div class="carrinho-resumo">
+            <div><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
+            <div><span>Entrega</span><strong id="entrega">A combinar</strong></div>
+            <div class="total"><span>Total dos produtos</span><strong id="total">R$ 0,00</strong></div>
+        </div>
+
+        <button class="botao-finalizar" id="finalizar" type="button">
+            Continuar pedido <span>→</span>
+        </button>
+
+        <p class="aviso-carrinho" id="aviso-carrinho" role="status"></p>
+
+        <div class="entrega-card">
+            <span class="entrega-icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 6h11v12H3zM14 10h4l3 4v4h-7M7 18a2 2 0 1 0 4 0M16 18a2 2 0 1 0 4 0"/>
+                </svg>
+            </span>
+            <div>
+                <h3>Entrega ou retirada</h3>
+                <p>Combine a melhor opção para você.</p>
+            </div>
+        </div>
+    </aside>
+
+</div>
+
+<footer class="rodape" id="contato">
+    <div class="rodape-conteudo">
+        <section class="rodape-marca">
+            <img src="img/pao-de-ouro.jpg" alt="Pão de Ouro">
+            <p>Mais que uma padaria, uma tradição.</p>
+        </section>
+
+        <section>
+            <h2>Navegue</h2>
+            <a href="#inicio">Início</a>
+            <a href="#produtos">Cardápio</a>
+            <a href="#sobre">Nossa história</a>
+        </section>
+
+        <section>
+            <h2>Nosso cardápio</h2>
+            <a href="#produtos" data-link-categoria="Pães">Pães</a>
+            <a href="#produtos" data-link-categoria="Doces">Doces</a>
+            <a href="#produtos" data-link-categoria="Salgados">Salgados</a>
+            <a href="#produtos" data-link-categoria="Bebidas">Bebidas</a>
+        </section>
+
+        <section>
+            <h2>Fale conosco</h2>
+            <p>(51) 99999-9999</p>
+            <p>contato@paodeouro.com.br</p>
+            <p>Alvorada — RS</p>
+        </section>
+    </div>
+
+    <div class="rodape-final">
+        <p>© 2026 Pão de Ouro. Todos os direitos reservados.</p>
+        <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
+</footer>
+
+</body>
+</html>
